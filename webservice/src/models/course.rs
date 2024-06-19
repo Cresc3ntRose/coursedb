@@ -1,10 +1,9 @@
 use crate::errors::MyError;
-use actix_web::web;
-use chrono::NaiveDateTime;
-use serde::{Deserialize, Serialize};
-use std::convert::TryFrom;
 
-// use crate::models::course::*
+use actix_web::web::{self, Json};
+use chrono::NaiveDateTime;
+use std::convert::TryFrom;
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Debug, Clone, sqlx::FromRow)]
 pub struct Course {
@@ -22,7 +21,7 @@ pub struct Course {
     pub level: Option<String>,
 }
 
-#[derive(Deserialize, Debug, Clone, sqlx::FromRow)]
+#[derive(Deserialize, Debug, Clone)]
 pub struct CreateCourse {
     pub teacher_id: i32,
     pub name: String,
@@ -35,46 +34,20 @@ pub struct CreateCourse {
     pub level: Option<String>,
 }
 
-// impl From<web::Json<CreateCourse>> for CreateCourse {
-//     fn from(course: web::Json<CreateCourse>) -> Self {
-//         CreateCourse {
-//             teacher_id: course.teacher_id,
-//             name: course.name.clone(),
-//             description: course.description.clone(),
-//             format: course.format.clone(),
-//             structure: course.structure.clone(),
-//             duration: course.duration.clone(),
-//             price: course.price.clone(),
-//             language: course.language.clone(),
-//             level: course.level.clone(),
-//         }
-//     }
-// }
-
 impl TryFrom<web::Json<CreateCourse>> for CreateCourse {
     type Error = MyError;
 
-    fn try_from(course: web::Json<CreateCourse>)
-        -> Result<Self, Self::Error> {
+    fn try_from(course: Json<CreateCourse>
+    ) -> Result<Self, Self::Error> {
         Ok(CreateCourse {
             teacher_id: course.teacher_id,
             name: course.name.clone(),
-            description: course
-                .description
-                .clone(),
-            format: course
-                .format
-                .clone(),
-            structure: course
-                .structure
-                .clone(),
-            duration: course
-                .duration
-                .clone(),
+            description: course.description.clone(),
+            format: course.format.clone(),
+            structure: course.structure.clone(),
+            duration: course.duration.clone(),
             price: course.price,
-            language: course
-                .language
-                .clone(),
+            language: course.language.clone(),
             level: course.level.clone(),
         })
     }
@@ -92,27 +65,20 @@ pub struct UpdateCourse {
     pub level: Option<String>,
 }
 
-impl From<web::Json<UpdateCourse>> for UpdateCourse {
-    fn from(course: web::Json<UpdateCourse>) -> Self {
-        UpdateCourse {
+impl TryFrom<web::Json<UpdateCourse>> for UpdateCourse {
+    type Error = MyError;
+
+    fn try_from(course: Json<UpdateCourse>
+    ) -> Result<Self, Self::Error> {
+        Ok(UpdateCourse {
             name: course.name.clone(),
-            description: course
-                .description
-                .clone(),
-            format: course
-                .format
-                .clone(),
-            structure: course
-                .structure
-                .clone(),
-            duration: course
-                .duration
-                .clone(),
+            description: course.description.clone(),
+            format: course.format.clone(),
+            structure: course.structure.clone(),
+            duration: course.duration.clone(),
             price: course.price,
-            language: course
-                .language
-                .clone(),
+            language: course.language.clone(),
             level: course.level.clone(),
-        }
+        })
     }
 }
