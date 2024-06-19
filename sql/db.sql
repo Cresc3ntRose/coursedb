@@ -30,3 +30,29 @@ values(
               'Third course',
               '2022-01-18 05:45:00'
        );
+
+drop table if exists teacher;
+create table teacher (
+       id serial primary key,
+       name varchar(100) not null,
+       picture_url varchar(200) not null,
+       profile varchar(2000) not null
+);
+insert into teacher (name, picture_url, profile)
+values(
+              'Fei Gao',
+              'https://person.zju.edu.cn/fgaoaa',
+              'a teacher in FAST_Lab, ZJU'
+       );
+insert into teacher (name, picture_url, profile)
+values(
+              'Boyu Zhou',
+              'https://boyuzhou.net/pub/',
+              'a teacher in STAR_Lab, SYSU'
+       );
+insert into teacher (name, picture_url, profile)
+values(
+              'Shaojie Shen',
+              'https://seng.hkust.edu.hk/about/people/faculty/shaojie-shen',
+              'a teacher in HKUST & DJI'
+       );

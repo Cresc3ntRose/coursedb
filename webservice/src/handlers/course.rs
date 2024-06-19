@@ -70,7 +70,7 @@ mod tests {
     #[actix_rt::test]
     async fn post_course_test() {
         dotenv().ok();
-        let db_url = env::var("DATABASE_URL").expect("DATABASE_URL 没有在 .env 文件里设置");
+        let db_url = env::var("DATABASE_URL").expect("DATABASE_URL is not set");
         let db_pool = PgPoolOptions::new()
             .connect(&db_url)
             .await
@@ -103,7 +103,7 @@ mod tests {
     #[actix_rt::test]
     async fn get_all_courses_success() {
         dotenv().ok();
-        let db_url = env::var("DATABASE_URL").expect("DATABASE_URL 没有在 .env 文件里设置");
+        let db_url = env::var("DATABASE_URL").expect("DATABASE_URL is not set");
         let db_pool = PgPoolOptions::new()
             .connect(&db_url)
             .await
@@ -124,7 +124,7 @@ mod tests {
     #[actix_rt::test]
     async fn get_one_course_success() {
         dotenv().ok();
-        let db_url = env::var("DATABASE_URL").expect("DATABASE_URL 没有在 .env 文件里设置");
+        let db_url = env::var("DATABASE_URL").expect("DATABASE_URL is not set");
         let db_pool = PgPoolOptions::new()
             .connect(&db_url)
             .await
@@ -146,7 +146,7 @@ mod tests {
     // #[should_panic]
     async fn get_one_course_failure() {
         dotenv().ok();
-        let db_url = env::var("DATABASE_URL").expect("DATABASE_URL 没有在 .env 文件里设置");
+        let db_url = env::var("DATABASE_URL").expect("DATABASE_URL is not set");
         let db_pool = PgPoolOptions::new()
             .connect(&db_url)
             .await
@@ -169,7 +169,7 @@ mod tests {
     #[actix_rt::test]
     async fn update_course_success() {
         dotenv().ok();
-        let db_url = env::var("DATABASE_URL").expect("DATABASE_URL 没有在 .env 文件里设置");
+        let db_url = env::var("DATABASE_URL").expect("DATABASE_URL is not set");
         let db_pool = PgPoolOptions::new()
             .connect(&db_url)
             .await
@@ -201,7 +201,7 @@ mod tests {
     #[actix_rt::test]
     async fn delete_course_success() {
         dotenv().ok();
-        let db_url = env::var("DATABASE_URL").expect("DATABASE_URL 没有在 .env 文件里设置");
+        let db_url = env::var("DATABASE_URL").expect("DATABASE_URL is not set");
         let db_pool = PgPoolOptions::new()
             .connect(&db_url)
             .await
@@ -222,7 +222,7 @@ mod tests {
     #[actix_rt::test]
     async fn delete_course_failure() {
         dotenv().ok();
-        let db_url = env::var("DATABASE_URL").expect("DATABASE_URL 没有在 .env 文件里设置");
+        let db_url = env::var("DATABASE_URL").expect("DATABASE_URL is not set");
         let db_pool = PgPoolOptions::new()
             .connect(&db_url)
             .await
