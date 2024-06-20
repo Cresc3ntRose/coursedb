@@ -34,7 +34,7 @@ npm install && npm run start
 * 启动 web 服务
   ```sh
   # 设置临时环境变量
-  export DATABASE_URL=postgres://demo_teacher:qaz520pl_@rm-cn-5ce3sfraa000c84o.rwlb.rds.aliyuncs.com:5432/tutorial
+  # export DATABASE_URL=postgres://username:password@host:port/database_name
   ./teacher-service
   ```
 * 启动教师客户端
