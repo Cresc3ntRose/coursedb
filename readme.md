@@ -29,3 +29,22 @@ npm install && npm run start
 ```
 即可启动课程客户端，这时可以打开浏览器，访问 `http://localhost:8080/` 地址，即可查看课程页面
 ，同时支持新增课程与删除课程的功能.
+
+也可以在 `\pub` 目录下直接启动相应的程序.
+* 启动 web 服务
+  ```sh
+  # 设置临时环境变量
+  export DATABASE_URL=postgres://demo_teacher:qaz520pl_@rm-cn-5ce3sfraa000c84o.rwlb.rds.aliyuncs.com:5432/tutorial
+  ./teacher-service
+  ```
+* 启动教师客户端
+  ```sh
+  export HOST_PORT=127.0.0.1:8080
+  ./svr
+  ```
+* 启动课程客户端
+  ```sh
+  # 为避免与教师客户端冲突，选择手动设置端口，这里以8081为例
+  # http-server ./dist -p <port>
+  http-server ./dist -p 8081
+  ```
