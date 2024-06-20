@@ -16,19 +16,19 @@ insert into course (teacher_id, name, time)
 values(
               1,
               'First course',
-              '2022-01-17 05:40:00'
+              '2024-06-17 05:40:00'
        );
 insert into course (teacher_id, name, time)
 values(
               1,
               'Second course',
-              '2022-01-18 05:45:00'
+              '2024-06-18 05:45:00'
        );
 insert into course (teacher_id, name, time)
 values(
               1,
               'Third course',
-              '2022-01-18 05:45:00'
+              '2024-06-18 05:45:00'
        );
 
 drop table if exists teacher;
